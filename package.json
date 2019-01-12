@@ -1,7 +1,7 @@
 {
-  "name": "gke-helpers",
+  "name": "gcphelp",
   "version": "1.0.0",
-  "description": "",
+  "description": "A small set of tools that helps working with Kubernetes on Google Cloud Platform",
   "main": "index.js",
   "bin": {
     "cluster": "./cluster.js",
@@ -16,5 +16,14 @@
   "license": "ISC",
   "dependencies": {
     "prompts": "^2.0.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinsimper/google-cloud-kubernetes-cli-helpers.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kevinsimper/google-cloud-kubernetes-cli-helpers/issues"
+  },
+  "homepage": "https://github.com/kevinsimper/google-cloud-kubernetes-cli-helpers#readme"
 }
