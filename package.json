@@ -1,6 +1,6 @@
 {
   "name": "gcphelp",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A small set of tools that helps working with Kubernetes on Google Cloud Platform",
   "main": "index.js",
   "bin": {
