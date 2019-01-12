@@ -4,9 +4,10 @@
   "description": "A small set of tools that helps working with Kubernetes on Google Cloud Platform",
   "main": "index.js",
   "bin": {
-    "cluster": "./cluster.js",
-    "project": "./project.js",
-    "namespace": "./namespace.js"
+    "cluster": "./src/cluster.js",
+    "project": "./src/project.js",
+    "namespace": "./src/namespace.js",
+    "account": "./src/account.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
