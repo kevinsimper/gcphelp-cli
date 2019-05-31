@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const { fork, spawn, execSync } = require("child_process");
+const { join } = require("path");
 const prompts = require("prompts");
 
 function getCredentials(cluster) {
@@ -15,7 +16,7 @@ function getCredentials(cluster) {
 }
 
 function chooseProject() {
-  spawn("./project.js", {
+  spawn(join(__dirname, "./project.js"), {
     stdio: "inherit"
   }).on("exit", () => {
     main();
