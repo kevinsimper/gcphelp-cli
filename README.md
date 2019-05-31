@@ -12,7 +12,10 @@ _No more copy and pasting names or writing them manually!_
 
 ## Features
 
-### `$ account` - switch easily between accounts
-### `$ project` - switch easily between projects
-### `$ cluster` - switch easily between Kubernetes clusters
-### `$ namespace` - switch easily between Kubernetes namespaces on the active cluster
+### `$ gcpaccount` - switch easily between accounts
+
+### `$ gcpproject` - switch easily between projects
+
+### `$ gcpcluster` - switch easily between Kubernetes clusters
+
+### `$ gcpnamespace` - switch easily between Kubernetes namespaces on the active cluster
