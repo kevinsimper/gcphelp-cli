@@ -8,7 +8,7 @@ async function main() {
   console.log("Fetching latest builds");
   const ongoingCmd = "gcloud builds list --format=json --ongoing";
   const ongoingBuilds = JSON.parse(execSync(ongoingCmd));
-  const buildsCmd = "gcloud builds list --format=json";
+  const buildsCmd = "gcloud builds list --format=json --limit=20";
   const builds = JSON.parse(execSync(buildsCmd));
   const combined = [ongoingBuilds, builds].flat();
   const buildList = combined.map((item, i) => {
@@ -27,8 +27,10 @@ async function main() {
     choices: buildList,
   });
 
-  console.log(combined[response.value].logUrl);
-  open(combined[response.value].logUrl);
+  if (response.value) {
+    console.log(combined[response.value].logUrl);
+    open(combined[response.value].logUrl);
+  }
 }
 
 main();
