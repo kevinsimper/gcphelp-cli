@@ -12,10 +12,22 @@ _No more copy and pasting names or writing them manually!_
 
 ## Features
 
-### `$ gcpaccount` - switch easily between accounts
+### `$ gcpaccount`
 
-### `$ gcpproject` - switch easily between projects
+Switch easily between accounts
 
-### `$ gcpcluster` - switch easily between Kubernetes clusters
+### `$ gcpproject`
 
-### `$ gcpnamespace` - switch easily between Kubernetes namespaces on the active cluster
+Switch easily between projects
+
+### `$ gcpcluster`
+
+Switch easily between Kubernetes clusters
+
+### `$ gcpnamespace`
+
+Switch easily between Kubernetes namespaces on the active cluster
+
+### `$ gcpbuilds`
+
+Open Cloud Builds easily from the terminal

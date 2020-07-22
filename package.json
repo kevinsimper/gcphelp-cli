@@ -7,7 +7,8 @@
     "gcpcluster": "./src/cluster.js",
     "gcpproject": "./src/project.js",
     "gcpnamespace": "./src/namespace.js",
-    "gcpaccount": "./src/account.js"
+    "gcpaccount": "./src/account.js",
+    "gcpbuilds": "./src/builds.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,6 +17,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "open": "^7.0.4",
     "prompts": "^2.0.0"
   },
   "devDependencies": {},
