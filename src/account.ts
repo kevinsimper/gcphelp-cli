@@ -18,12 +18,14 @@ async function main() {
     choices,
   });
   console.log(response);
-  let cmd = `gcloud auth login ${accounts[response.value].account}`;
-  console.log(cmd);
-  spawn(cmd, {
-    shell: true,
-    stdio: "inherit",
-  });
+  if (response.value !== undefined) {
+    let cmd = `gcloud auth login ${accounts[response.value].account}`;
+    console.log(cmd);
+    spawn(cmd, {
+      shell: true,
+      stdio: "inherit",
+    });
+  }
 }
 
 if (require.main === module) {

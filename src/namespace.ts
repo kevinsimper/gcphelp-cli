@@ -17,13 +17,15 @@ async function main() {
     message: "Pick a namespace",
     choices,
   });
-  let ns = namespaces.items[response.value].metadata.name;
-  let cmd = `kubectl config set-context $(kubectl config current-context) --namespace=${ns}`;
-  console.log(cmd);
-  spawn(cmd, {
-    shell: true,
-    stdio: "inherit",
-  });
+  if (response.value !== undefined) {
+    let ns = namespaces.items[response.value].metadata.name;
+    let cmd = `kubectl config set-context $(kubectl config current-context) --namespace=${ns}`;
+    console.log(cmd);
+    spawn(cmd, {
+      shell: true,
+      stdio: "inherit",
+    });
+  }
 }
 
 if (require.main === module) {

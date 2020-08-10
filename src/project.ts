@@ -22,7 +22,7 @@ export async function main() {
     message: "Pick a project",
     choices,
   });
-  if (response.value) {
+  if (response.value !== undefined) {
     let cmd = `gcloud config set project ${projects[response.value].projectId}`;
     console.log(cmd);
     const output = execSync(cmd).toString("utf-8");
