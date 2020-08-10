@@ -1,15 +1,15 @@
 #!/usr/bin/env node
 
-const { spawn, execSync } = require("child_process");
-const prompts = require("prompts");
-const open = require("open");
+import { spawn, execSync } from "child_process";
+import prompts from "prompts";
+import open from "open";
 
 async function main() {
   console.log("Fetching latest builds");
   const ongoingCmd = "gcloud builds list --format=json --ongoing";
-  const ongoingBuilds = JSON.parse(execSync(ongoingCmd));
+  const ongoingBuilds = JSON.parse(execSync(ongoingCmd).toString('utf-8'));
   const buildsCmd = "gcloud builds list --format=json --limit=20";
-  const builds = JSON.parse(execSync(buildsCmd));
+  const builds = JSON.parse(execSync(buildsCmd).toString('utf-8'));
   const combined = [ongoingBuilds, builds].flat();
   const buildList = combined.map((item, i) => {
     return {

@@ -1,23 +1,21 @@
 #!/usr/bin/env node
 
-const { fork, spawn, execSync } = require("child_process");
-const { join } = require("path");
-const prompts = require("prompts");
+import { fork, spawn, execSync } from "child_process";
+import { join } from "path";
+import prompts from "prompts";
 
 function getCredentials(cluster) {
-  let cmd = `gcloud container clusters get-credentials --region=${
-    cluster.zone
-  } ${cluster.name}`;
+  let cmd = `gcloud container clusters get-credentials --region=${cluster.zone} ${cluster.name}`;
   console.log(cmd);
   spawn(cmd, {
     shell: true,
-    stdio: "inherit"
+    stdio: "inherit",
   });
 }
 
 function chooseProject() {
   spawn(join(__dirname, "./project.js"), {
-    stdio: "inherit"
+    stdio: "inherit",
   }).on("exit", () => {
     main();
   });
@@ -25,18 +23,18 @@ function chooseProject() {
 
 async function main() {
   const clusters = JSON.parse(
-    execSync("gcloud container clusters list --format=json")
+    execSync("gcloud container clusters list --format=json").toString('utf-8')
   );
   const choices = clusters.map((c, id) => ({ title: c.name, value: id }));
   choices.push({
     title: "→ Choose other project",
-    value: "other"
+    value: "other",
   });
   const response = await prompts({
     type: "select",
     name: "value",
     message: "Pick a cluster",
-    choices
+    choices,
   });
 
   switch (response.value) {
