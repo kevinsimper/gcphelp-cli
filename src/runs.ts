@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 
-import { spawn, execSync } from "child_process";
+import { execSync } from "child_process";
 import prompts from "prompts";
 import open from "open";
-import { getProjects, main as chooseProject } from "./project";
+import { main as chooseProject } from "./project";
 import { getConfig } from "./status";
+import { getAuthuser } from "./helper/config";
 
 async function getServices() {
   const services = JSON.parse(
@@ -40,7 +41,11 @@ async function main() {
     const config = await getConfig();
     const service = services[response.value];
     console.log({ service });
-    let url = `https://console.cloud.google.com/run/detail/${service.metadata.labels["cloud.googleapis.com/location"]}/${service.metadata.name}/revisions?authuser=1&project=${config.core.project}`;
+    let url = `https://console.cloud.google.com/run/detail/${
+      service.metadata.labels["cloud.googleapis.com/location"]
+    }/${service.metadata.name}/revisions?authuser=${getAuthuser()}&project=${
+      config.core.project
+    }`;
     open(url);
   }
 }
