@@ -23,7 +23,7 @@ function chooseProject() {
 
 async function main() {
   const clusters = JSON.parse(
-    execSync("gcloud container clusters list --format=json").toString('utf-8')
+    execSync("gcloud container clusters list --format=json").toString("utf-8")
   );
   const choices = clusters.map((c, id) => ({ title: c.name, value: id }));
   choices.push({
@@ -45,4 +45,6 @@ async function main() {
   }
 }
 
-main();
+if (require.main === module) {
+  main();
+}

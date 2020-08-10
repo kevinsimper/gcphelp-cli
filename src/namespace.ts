@@ -4,7 +4,9 @@ import { spawn, execSync } from "child_process";
 import prompts from "prompts";
 
 async function main() {
-  const namespaces = JSON.parse(execSync("kubectl get ns -o=json").toString('utf-8'));
+  const namespaces = JSON.parse(
+    execSync("kubectl get ns -o=json").toString("utf-8")
+  );
   const choices = namespaces.items.map((c, id) => ({
     title: c.metadata.name,
     value: id,
@@ -24,4 +26,6 @@ async function main() {
   });
 }
 
-main();
+if (require.main === module) {
+  main();
+}

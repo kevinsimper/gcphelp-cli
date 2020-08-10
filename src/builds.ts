@@ -7,9 +7,9 @@ import open from "open";
 async function main() {
   console.log("Fetching latest builds");
   const ongoingCmd = "gcloud builds list --format=json --ongoing";
-  const ongoingBuilds = JSON.parse(execSync(ongoingCmd).toString('utf-8'));
+  const ongoingBuilds = JSON.parse(execSync(ongoingCmd).toString("utf-8"));
   const buildsCmd = "gcloud builds list --format=json --limit=20";
-  const builds = JSON.parse(execSync(buildsCmd).toString('utf-8'));
+  const builds = JSON.parse(execSync(buildsCmd).toString("utf-8"));
   const combined = [ongoingBuilds, builds].flat();
   const buildList = combined.map((item, i) => {
     return {
@@ -33,4 +33,6 @@ async function main() {
   }
 }
 
-main();
+if (require.main === module) {
+  main();
+}

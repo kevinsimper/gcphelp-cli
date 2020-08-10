@@ -4,7 +4,9 @@ import { spawn, execSync } from "child_process";
 import prompts from "prompts";
 
 async function main() {
-  const accounts = JSON.parse(execSync("gcloud auth list --format=json").toString());
+  const accounts = JSON.parse(
+    execSync("gcloud auth list --format=json").toString()
+  );
   const choices = accounts.map((c, id) => ({
     title: `${c.account} - ${c.status}`,
     value: id,
@@ -24,4 +26,6 @@ async function main() {
   });
 }
 
-main();
+if (require.main === module) {
+  main();
+}
