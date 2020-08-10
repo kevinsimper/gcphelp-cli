@@ -4,11 +4,11 @@
   "description": "A small set of tools that helps working with Kubernetes on Google Cloud Platform",
   "main": "index.js",
   "bin": {
-    "gcpcluster": "./src/cluster.js",
-    "gcpproject": "./src/project.js",
-    "gcpnamespace": "./src/namespace.js",
-    "gcpaccount": "./src/account.js",
-    "gcpbuilds": "./src/builds.js"
+    "gcpcluster": "./dist/cluster.js",
+    "gcpproject": "./dist/project.js",
+    "gcpnamespace": "./dist/namespace.js",
+    "gcpaccount": "./dist/account.js",
+    "gcpbuilds": "./dist/builds.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
