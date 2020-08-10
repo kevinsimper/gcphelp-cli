@@ -22,6 +22,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "conf": "^7.1.1",
     "open": "^7.0.4",
     "prompts": "^2.0.0"
   },
