@@ -31,3 +31,11 @@ Switch easily between Kubernetes namespaces on the active cluster
 ### `$ gcpbuilds`
 
 Open Cloud Builds easily from the terminal
+
+### `$ gcprun`
+
+Open Cloud Run easily from the terminal
+
+### `$ gcpauthuser`
+
+Set which authuser to open with
