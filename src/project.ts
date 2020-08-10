@@ -3,8 +3,15 @@
 import { spawn, execSync } from "child_process";
 import prompts from "prompts";
 
-async function main() {
-  const projects = JSON.parse(execSync("gcloud projects list --format=json").toString('utf-8'));
+export async function getProjects() {
+  const projects = JSON.parse(
+    execSync("gcloud projects list --format=json").toString("utf-8")
+  );
+  return projects;
+}
+
+export async function main() {
+  const projects = await getProjects();
   const choices = projects.map((c, id) => ({
     title: `${c.name} - ${c.projectId}`,
     value: id,
@@ -15,12 +22,14 @@ async function main() {
     message: "Pick a project",
     choices,
   });
-  let cmd = `gcloud config set project ${projects[response.value].projectId}`;
-  console.log(cmd);
-  spawn(cmd, {
-    shell: true,
-    stdio: "inherit",
-  });
+  if (response.value) {
+    let cmd = `gcloud config set project ${projects[response.value].projectId}`;
+    console.log(cmd);
+    const output = execSync(cmd).toString("utf-8");
+    console.log(output);
+  }
 }
 
-main();
+if (require.main === module) {
+  main();
+}
