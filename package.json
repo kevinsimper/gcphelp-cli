@@ -1,6 +1,6 @@
 {
   "name": "gcphelp",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "A small set of tools that helps working with Kubernetes on Google Cloud Platform",
   "main": "./dist/project.js",
   "bin": {
