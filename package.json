@@ -20,7 +20,9 @@
     "open": "^7.0.4",
     "prompts": "^2.0.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "typescript": "^3.9.7"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kevinsimper/google-cloud-kubernetes-cli-helpers.git"
