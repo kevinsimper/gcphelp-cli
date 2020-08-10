@@ -2,14 +2,18 @@
   "name": "gcphelp",
   "version": "1.2.0",
   "description": "A small set of tools that helps working with Kubernetes on Google Cloud Platform",
-  "main": "index.js",
+  "main": "./dist/project.js",
   "bin": {
     "gcpcluster": "./dist/cluster.js",
     "gcpproject": "./dist/project.js",
     "gcpnamespace": "./dist/namespace.js",
     "gcpaccount": "./dist/account.js",
-    "gcpbuilds": "./dist/builds.js"
+    "gcpbuilds": "./dist/builds.js",
+    "gcprun": "./dist/runs.js"
   },
+  "files": [
+    "/dist"
+  ],
   "scripts": {
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
