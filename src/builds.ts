@@ -3,6 +3,7 @@
 import { spawn, execSync } from "child_process";
 import prompts from "prompts";
 import open from "open";
+import { getAuthuser } from "./helper/config";
 
 async function main() {
   console.log("Fetching latest builds");
@@ -27,9 +28,10 @@ async function main() {
     choices: buildList,
   });
 
-  if (response.value) {
-    console.log(combined[response.value].logUrl);
-    open(combined[response.value].logUrl);
+  if (response.value !== undefined) {
+    const url = combined[response.value].logUrl + "&authuser=" + getAuthuser();
+    console.log(url);
+    open(url);
   }
 }
 
