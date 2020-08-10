@@ -9,7 +9,8 @@
     "gcpnamespace": "./dist/namespace.js",
     "gcpaccount": "./dist/account.js",
     "gcpbuilds": "./dist/builds.js",
-    "gcprun": "./dist/runs.js"
+    "gcprun": "./dist/runs.js",
+    "gcpauthuser": "./dist/authuser.js"
   },
   "files": [
     "/dist"
